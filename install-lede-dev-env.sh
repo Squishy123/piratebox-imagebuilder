@@ -47,7 +47,22 @@ echo "Updating piratebox feed..."
 echo "Installing piratebox feed..."
 ./scripts/feeds install -p piratebox
 
+echo "Installing nodejs feed"
+echo "src-git node https://github.com/nxhack/openwrt-node-packages.git" >> feeds.conf
+
+echo "Updating nodejs feed..."
+./scripts/feeds update node
+rm ./package/feeds/packages/node
+rm ./package/feeds/packages/node-arduino-firmata
+rm ./package/feeds/packages/node-cylon
+rm ./package/feeds/packages/node-hid
+rm ./package/feeds/packages/node-serialport
+
+echo "Installing nodejs feed..."
+./scripts/feeds install -a -p node
+
 echo "Moving Files..."
+
 cd ..
 mv Makefile lede
 mv ar71xx-generic.mk lede/include
