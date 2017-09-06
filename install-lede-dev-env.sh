@@ -48,6 +48,7 @@ echo "Installing piratebox feed..."
 ./scripts/feeds install -p piratebox
 
 echo "Moving Files..."
+cd ..
 mv Makefile lede
 mv ar71xx-generic.mk lede/include
 
