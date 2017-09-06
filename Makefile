@@ -200,7 +200,7 @@ $(VERSION_FILE):
 ifneq ($(INSTALL_PREFIX),)
 	mkdir -p $(INSTALL_PREFIX)
 	#cp $(IMAGE_BUILD_FOLDER)bin/targets/$(TARGET)/$(TARGET_TYPE)/$@ $(INSTALL_PREFIX)/$(OPENWRT_COMP)$@
-	cp /home/chris/Desktop/LEDE-scripts/lede/lede-imagebuilder-ar71xx-generic.Linux-x86_64/bin/targets/ar71xx/generic/lede-ar71xx-generic-tl-wr902ac-v1-squashfs-factory.bin $(INSTALL_PREFIX)/$(OPENWRT_COMP)$@
+	cp $(IMAGE_BUILD_FOLDER)/bin/targets/$(TARGET)/$(TARGET_TYPE)/lede-ar71xx-generic-tl-wr902ac-v1-squashfs-factory.bin $(INSTALL_PREFIX)/$(OPENWRT_COMP)$@
 	cd $(INSTALL_PREFIX) && sha256sum $(OPENWRT_COMP)$@ > $(OPENWRT_COMP)$@.sha256
 else
 	cp $(IMAGE_BUILD_FOLDER)/bin/targets/$(TARGET)/$(TARGET_TYPE)/$@ ./$@
