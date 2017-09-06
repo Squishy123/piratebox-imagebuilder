@@ -19,20 +19,22 @@ OPENWRT_COMP="openwrt-"
 
 include ${CURDIR}/include/$(TARGET)-$(TARGET_TYPE).mk
 
-#DEFAULT
-#IMAGEBUILDER_URL="https://downloads.lede-project.org/releases/$(LEDE_VERSION)/targets/$(TARGET)/$(TARGET_TYPE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(TARGET_TYPE).Linux-x86_64.tar.xz"
-#USE FOR SNAPSHOTS
+ifeq ($(SNAPSHOT), true)
+#SNAPSHOT SETTINGS
 IMAGEBUILDER_URL="https://downloads.lede-project.org/snapshots/targets/$(TARGET)/$(TARGET_TYPE)/lede-imagebuilder-$(TARGET)-$(TARGET_TYPE).Linux-x86_64.tar.xz"
+IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(TARGET)-$(TARGET_TYPE).Linux-x86_64/
+else
+#DEFAULT LEDE 
+IMAGEBUILDER_URL="https://downloads.lede-project.org/releases/$(LEDE_VERSION)/targets/$(TARGET)/$(TARGET_TYPE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(TARGET_TYPE).Linux-x86_64.tar.xz"
+IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(TARGET_TYPE).Linux-x86_64/
+endif
 
 IMAGE_BUILDER_FILE="ImageBuilder-$(TARGET)_$(TARGET_TYPE).tar.xz"
 LEDE_REPOSITORY_PREFIX="reboot"
 
 
 IMAGE_BUILD_REPOSITORY?=http://development.piratebox.de/all/
-#DEFAULT
-#IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(TARGET_TYPE).Linux-x86_64/
-#USE FOR SNAPSHOTS
-IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(TARGET)-$(TARGET_TYPE).Linux-x86_64/
+
 
 # Prefix for the installer directory
 #
@@ -199,8 +201,7 @@ $(VERSION_FILE):
 	cd $(IMAGE_BUILD_FOLDER) &&	make image PROFILE="$$(cat $(IMAGE_BUILD_FOLDER)/profile.build.tmp )" PACKAGES="$(GENERAL_PACKAGES)" FILES=$(FILES_FOLDER)
 ifneq ($(INSTALL_PREFIX),)
 	mkdir -p $(INSTALL_PREFIX)
-	#cp $(IMAGE_BUILD_FOLDER)bin/targets/$(TARGET)/$(TARGET_TYPE)/$@ $(INSTALL_PREFIX)/$(OPENWRT_COMP)$@
-	cp $(IMAGE_BUILD_FOLDER)/bin/targets/$(TARGET)/$(TARGET_TYPE)/lede-ar71xx-generic-tl-wr902ac-v1-squashfs-factory.bin $(INSTALL_PREFIX)/$(OPENWRT_COMP)$@
+	cp $(IMAGE_BUILD_FOLDER)/bin/targets/$(TARGET)/$(TARGET_TYPE)/*squashfs-factory.bin $(INSTALL_PREFIX)/$(OPENWRT_COMP)$@
 	cd $(INSTALL_PREFIX) && sha256sum $(OPENWRT_COMP)$@ > $(OPENWRT_COMP)$@.sha256
 else
 	cp $(IMAGE_BUILD_FOLDER)/bin/targets/$(TARGET)/$(TARGET_TYPE)/$@ ./$@
