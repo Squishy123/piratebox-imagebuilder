@@ -1,4 +1,4 @@
-# PIRATEBOX IMAGEBUILDER
+# PIRATEBOX IMAGEBUILDER WITH NODEJS SUPPORT
 ## Author: Christian Wang
 A customizable image generator for making piratebox images
 
