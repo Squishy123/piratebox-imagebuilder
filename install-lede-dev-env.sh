@@ -52,4 +52,4 @@ cd ..
 mv Makefile lede
 mv ar71xx-generic.mk lede/include
 
-echo "All Done. To start building images run the script ./image-generator"
+echo "All Done. To start building images run the script ./image-generator.sh"

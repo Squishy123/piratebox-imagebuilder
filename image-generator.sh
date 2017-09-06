@@ -7,7 +7,7 @@ echo "WELCOME TO THE PIRATEBOX IMAGE-GENERATOR"
 
 while true; do
 
-  read -n1 -r -p "$(echo -e 'Choose option 1. for snapshot build\n Choose option 2. for stable build\n Choose option 3. to quit Y/N\n\b')" option
+  read -n1 -r -p "$(echo -e 'Choose option 1. for snapshot build\n Choose option 2. for stable build\n Choose option 3. to quit\n\b')" option
   case $option in
     [1]* ) echo "Installing Packages..."
     sed -i -e 's/false/true/g' lede/Makefile
