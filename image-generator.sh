@@ -11,32 +11,25 @@ while true; do
   case $option in
     [1]* ) echo "Installing Packages..."
     sed -i -e 's/false/true/g' lede/Makefile
+    echo "\n"
     break;;
     [2]* )
     sed -i -e 's/true/false/g' lede/Makefile
+    echo "\n"
     break;;
     [3]* ) exit break;;
     *) echo "Please choose an option"
   esac
 done
+cd lede
 
-while true; do
-
-  read -n1 -r -p "$(echo -e 'Display available image profiles? Y/N\n\b')" yn
-  case $yn in
-    [Yy]* )
-    cd lede
-    make info
-    break;;
-    [Nn]* ) break;;
-    *) echo "Please answer yes or no"
-  esac
-done
+echo "Building Imagebuilder"
+make imagebuilder
 
 echo "Type the name of the profile you would like to generate an image for."
 read profile
 
 echo "Attempting to build the image"
-make profile
+make $(profile)
 
 echo "All done, the image can be found in the target__ar71xx folder"
