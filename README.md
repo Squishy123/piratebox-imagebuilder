@@ -16,6 +16,7 @@ Currently only the WR902AC is supported for imagebuilding. All other supported d
 
 ### IMAGE BUILDING AND INSTALLATION
 Execute the command :
+make imagebuilder
 make WR902AC
 to make a piratebox image for TL-902AC router
 

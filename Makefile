@@ -207,11 +207,6 @@ else
 	sha256sum $@ > $@.sha256
 endif
 
-
-
-
-
-
 distclean: clean
 	rm -rf $(IMAGE_BUILDER_FILE)
 	rm -rf $(FILES_FOLDER)
