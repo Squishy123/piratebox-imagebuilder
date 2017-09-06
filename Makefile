@@ -19,12 +19,13 @@ OPENWRT_COMP="openwrt-"
 
 include ${CURDIR}/include/$(TARGET)-$(TARGET_TYPE).mk
 
+SNAPSHOT=true
 ifeq ($(SNAPSHOT), true)
 #SNAPSHOT SETTINGS
 IMAGEBUILDER_URL="https://downloads.lede-project.org/snapshots/targets/$(TARGET)/$(TARGET_TYPE)/lede-imagebuilder-$(TARGET)-$(TARGET_TYPE).Linux-x86_64.tar.xz"
 IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(TARGET)-$(TARGET_TYPE).Linux-x86_64/
 else
-#DEFAULT LEDE 
+#DEFAULT LEDE
 IMAGEBUILDER_URL="https://downloads.lede-project.org/releases/$(LEDE_VERSION)/targets/$(TARGET)/$(TARGET_TYPE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(TARGET_TYPE).Linux-x86_64.tar.xz"
 IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(TARGET_TYPE).Linux-x86_64/
 endif

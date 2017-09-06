@@ -47,6 +47,8 @@ echo "Updating piratebox feed..."
 echo "Installing piratebox feed..."
 ./scripts/feeds install -p piratebox
 
-make defconfig
+echo "Moving Files..."
+mv Makefile lede
+mv ar71xx-generic.mk lede/include
 
-echo "All done. Run make menuconfig to start building"
+echo "All Done. To start building images run the script ./image-generator"
