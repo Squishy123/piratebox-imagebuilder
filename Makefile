@@ -1,8 +1,8 @@
 HERE:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-TARGET=ar71xx
+TARGET=brcm2708
 TARGET_TYPE=generic
-ARCH=mips_24kc
-ARCH_BUILDROOT=$(ARCH)_musl-1.1.16
+ARCH=arm_arm1176jzf-s_vfp
+ARCH_BUILDROOT=$(ARCH)musl-1.1.16
 
 # Version related configuration
 VERSION_FILE=files/etc/pbx_custom_image
