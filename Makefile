@@ -1,5 +1,6 @@
 HERE:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 TARGET=brcm2708
+SUBTARGET=bcm2708
 TARGET_TYPE=generic
 ARCH=arm
 ARCH_BUILDROOT=$(ARCH)_arm1176jzf-s_vfp
@@ -26,8 +27,8 @@ IMAGEBUILDER_URL="https://downloads.lede-project.org/snapshots/targets/$(TARGET)
 IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(TARGET)-$(TARGET_TYPE).Linux-x86_64/
 else
 #DEFAULT LEDE
-IMAGEBUILDER_URL="https://downloads.lede-project.org/releases/$(LEDE_VERSION)/targets/$(TARGET)/$(TARGET_TYPE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(TARGET_TYPE).Linux-x86_64.tar.xz"
-IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(TARGET_TYPE).Linux-x86_64/
+IMAGEBUILDER_URL="https://downloads.lede-project.org/releases/$(LEDE_VERSION)/targets/$(TARGET)/$(TARGET_TYPE)/$(SUBTARGET)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(SUBTARGET)-$(TARGET_TYPE).Linux-x86_64.tar.xz"
+IMAGE_BUILD_FOLDER=$(HERE)/lede-imagebuilder-$(LEDE_VERSION)-$(TARGET)-$(SUBTARGET)-$(TARGET_TYPE).Linux-x86_64.tar.xz"
 endif
 
 IMAGE_BUILDER_FILE="ImageBuilder-$(TARGET)_$(TARGET_TYPE).tar.xz"

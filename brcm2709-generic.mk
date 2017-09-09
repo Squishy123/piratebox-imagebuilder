@@ -1,11 +1,12 @@
 ## Build rules for brcm2709-generic
-
 TARGET=brcm2709
+SUBTARGET=bcm2708
 TARGET_TYPE=generic
 ARCH=arm
 ARCH_BUILDROOT=$(ARCH)_arm1176jzf-s_vfp
 
 all: \
+	imagebuilder \
 	rpiB \
 	install_zip
 
