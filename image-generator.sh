@@ -10,11 +10,11 @@ while true; do
   read -n1 -r -p "$(echo -e 'Choose option 1. for snapshot build\n Choose option 2. for stable build\n Choose option 3. to clean files\n Choose option 4. to quit\n\b')" option
   case $option in
     [1]* ) echo "Installing Packages..."
-    sed -i -e 's/false/true/g' lede/Makefile
+    sed -i -e 's/SNAPSHOT=false/SNAPSHOT=true/g' lede/Makefile
     echo "\n"
     break;;
     [2]* )
-    sed -i -e 's/true/false/g' lede/Makefile
+    sed -i -e 's/SNAPSHOT=true/SNAPSHOT=false/g' lede/Makefile
     echo "\n"
     break;;
     [3]* )
