@@ -1,8 +1,8 @@
 HERE:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-TARGET=ar71xx
+TARGET=brcm2708
 TARGET_TYPE=generic
-ARCH=mips_24kc
-ARCH_BUILDROOT=$(ARCH)_musl-1.1.16
+ARCH=arm
+ARCH_BUILDROOT=$(ARCH)_arm1176jzf-s_vfp
 
 # Version related configuration
 VERSION_FILE=files/etc/pbx_custom_image
@@ -49,7 +49,7 @@ FILES_FOLDER=$(HERE)/files/
 
 # Minimum dependencies
 #GENERAL_PACKAGES:=pbxopkg box-installer kmod-usb2 kmod-usb-storage kmod-fs-vfat kmod-nls-cp437 kmod-nls-cp850 kmod-nls-iso8859-1 kmod-nls-iso8859-15 kmod-fs-ext4 block-mount kmod-loop losetup kmod-batman-adv wireless-tools kmod-lib-crc16 kmod-nls-utf8 kmod-ip6tables kmod-ipt-nat zlib hostapd-mini iw swap-utils -ppp -ppp-mod-pppoe
-GENERAL_PACKAGES:=pbxopkg box-installer kmod-usb2 kmod-usb-storage kmod-fs-vfat kmod-nls-cp437 kmod-nls-cp850 kmod-nls-iso8859-1 kmod-nls-iso8859-15 kmod-fs-ext4 kmod-loop losetup kmod-lib-crc16 kmod-nls-utf8 kmod-ip6tables zlib iw swap-utils -ppp -ppp-mod-pppoe block-mount kmod-batman-adv -odhcp6c 
+GENERAL_PACKAGES:=pbxopkg box-installer kmod-usb2 kmod-usb-storage kmod-fs-vfat kmod-nls-cp437 kmod-nls-cp850 kmod-nls-iso8859-1 kmod-nls-iso8859-15 kmod-fs-ext4 kmod-loop losetup kmod-lib-crc16 kmod-nls-utf8 kmod-ip6tables zlib iw swap-utils -ppp -ppp-mod-pppoe block-mount kmod-batman-adv -odhcp6c
 
 # Install.zip related configuration
 IPKG_TMP:=$(IMAGE_BUILD_FOLDER)/tmp/ipkgtmp
