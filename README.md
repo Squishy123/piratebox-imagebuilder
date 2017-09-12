@@ -1,6 +1,12 @@
 # PIRATEBOX IMAGEBUILDER 
 ## Author: Christian Wang
-A customizable image generator for making piratebox images
+A customizable image generator for making piratebox images. 
+
+## REPOSITORY
+The following repositories are used when setting up the environment:
+https://github.com/PirateBox-Dev/openwrt-image-build/tree/LEDE_adjustments - MAKEFILE AND PROFILES(Slightly modified)
+https://github.com/PirateBox-Dev/openwrt-piratebox-feed - Piratebox Feeds
+https://git.lede-project.org/source.git - LEDE source
 
 ### INSTRUCTIONS
 Execute script ./install-lede-dev-env.sh.
